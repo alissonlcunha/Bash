@@ -1,0 +1,40 @@
+#!/bin/bash                                                                                                                                                                           
+                                                                                                                                                                                      
+clear                                                                                                                                                                                 
+erro=0                                                                                                                                                                                
+while [ $erro -eq 0 ]; do                                                                                                                                                             
+        echo -n "Insira o ano: "                                                                                                                                                      
+        read ano                                                                                                                                                                      
+        if ! [[ "$ano" =~ ^([0-9]{4})$ ]]; then                                                                                                                                       
+                echo "Erro no formato do ano informado!"                                                                                                                              
+        else                                                                                                                                                                          
+                erro=1                                                                                                                                                                
+        fi                                                                                                                                                                            
+done                                                                                                                                                                                  
+                                                                                                                                                                                      
+erro=0                                                                                                                                                                                
+while [ $erro -eq 0 ]; do                                                                                                                                                             
+        echo -n "Insira o mês: "                                                                                                                                                      
+        read mes                                                                                                                                                                      
+        if ! [[ "$mes" =~ ^(0[1-9]|1[0-2])$ ]]; then                                                                                                                                  
+                echo "Erro no formato do mês informado!"                                                                                                                              
+        else                                                                                                                                                                          
+                erro=1                                                                                                                                                                
+        fi                                                                                                                                                                            
+done                                                                                                                                                                                  
+                                                                                                                                                                                      
+erro=0                                                                                                                                                                                
+while [ $erro -eq 0 ];do                                                                                                                                                              
+        echo -n "Insira o dia: "                                                                                                                                                      
+        read dia                                                                                                                                                                      
+        if ! [[ "$dia" =~ ^(0[1-9]|[12][0-9]|3[01])$ ]]; then                                                                                                                         
+                echo "Erro no formato do dia informado!"                                                                                                                              
+        else                                                                                                                                                                          
+                erro=1                                                                                                                                                                
+        fi                                                                                                                                                                            
+done                                                                                                                                                                                  
+                                                                                                                                                                                      
+echo ""                                                                                                                                                                               
+date +"%A" -d $ano-$mes-$dia                                                                                                                                                          
+echo ""                                                                                                                                                                               
+cal $dia $mes $ano     
